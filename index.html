@@ -1,9 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>start</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.all {
+    width: 500px;
+    margin: auto;
+    background-color: brown;
+    text-align: center;
+}
+
+.h1 {
+    font-size: 150px;
+    height: 190px;
+    color: white;
+}
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    border-radius: 30px;
+}
+    </style>
 </head>
- <p>Hello world!</p>
- </body>
- </html>
+
+<body>
+    <div class="all">
+            <div class="h1" id="h1">0</div>
+        <div class="buttons">
+            <div id="increase">
+                <button id="b1">
+                    increase
+                </button>
+            </div>
+
+            <div id="decrease">
+                <button id="b2">
+                    decrease
+                </button>
+            </div>
+
+            <div id="discharge">
+                <button id="b3">discharge</button>
+            </div>
+            <div id="destruction">
+                <button id="b4">destruction</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const b1 = document.getElementById('increase')
+        const h1 = document.getElementById('h1')
+        const body = document.body
+        const all = document.getElementById('all')
+
+        function getCurrentValue() {
+            const text = h1.textContent
+            const number = Number(text)
+            return number
+        }
+
+getCurrentValue()
+
+        function increment() {
+            b1.addEventListener('click', () => {
+                h1.innerHTML = getCurrentValue() + 1
+                getCurrentValue() > 10 ? h1.style.color = 'red' : 'h1'
+            })
+        }
+        increment()
+
+        function decrement() {
+            const b2 = document.getElementById('b2')
+            b2.addEventListener('click', () => {
+                h1.textContent = getCurrentValue () -1
+                getCurrentValue() <= 10 ? h1.style.color = 'white' : 'h1'
+            })
+        }
+        decrement()
+
+        
+        function dis(){
+            const b3 = document.getElementById('b3')
+            b3.addEventListener('click', () => {
+              h1.textContent = 0
+            })
+        }
+        dis()
+
+
+        function remove(){
+            const destr = document.getElementById('destruction')
+            destr.addEventListener('click', () => {
+                body.remove()
+            })
+        }
+
+        remove()
+    </script>
+</body>
+
+</html>
